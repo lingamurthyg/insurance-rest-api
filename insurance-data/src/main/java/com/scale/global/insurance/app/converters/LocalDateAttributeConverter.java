@@ -5,7 +5,11 @@ import jakarta.persistence.Converter;
 import java.sql.Date;
 import java.time.LocalDate;
 
-@Converter(autoApply = true)
+/**
+ * This converter is not required for PostgreSQL as it natively supports LocalDate.
+ * Kept for backward compatibility but can be removed if not used elsewhere.
+ */
+@Converter(autoApply = false)
 public class LocalDateAttributeConverter implements AttributeConverter<LocalDate, Date> {
 
     @Override

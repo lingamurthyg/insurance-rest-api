@@ -67,7 +67,7 @@ class CustomersControllerTest {
 
         mockMvc.perform(get("/api/v1/customers"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json;charset=UTF-8"))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$", hasSize(2)));
 
         verify(customerService, times(1)).findAll();
@@ -79,7 +79,7 @@ class CustomersControllerTest {
 
         mockMvc.perform(get("/api/v1/customers/12"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json;charset=UTF-8"))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.insuranceNumber", equalTo(customerDTO.getInsuranceNumber())))
                 .andExpect(jsonPath("$.firstName", equalTo(customerDTO.getFirstName())))
                 .andExpect(jsonPath("$.lastName", equalTo(customerDTO.getLastName())))
@@ -98,7 +98,7 @@ class CustomersControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(customerDTO)))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json;charset=UTF-8"))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.insuranceNumber", equalTo(customerDTO.getInsuranceNumber())))
                 .andExpect(jsonPath("$.firstName", equalTo(customerDTO.getFirstName())))
                 .andExpect(jsonPath("$.lastName", equalTo(customerDTO.getLastName())))
@@ -117,7 +117,7 @@ class CustomersControllerTest {
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(new ObjectMapper().writeValueAsString(customerDTO)))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json;charset=UTF-8"))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.insuranceNumber", equalTo(customerDTO.getInsuranceNumber())))
                 .andExpect(jsonPath("$.firstName", equalTo(customerDTO.getFirstName())))
                 .andExpect(jsonPath("$.lastName", equalTo(customerDTO.getLastName())))
