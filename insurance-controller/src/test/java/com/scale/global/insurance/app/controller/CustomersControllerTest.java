@@ -47,7 +47,7 @@ class CustomersControllerTest {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
         customersController = new CustomersController(customerService);
         mockMvc = MockMvcBuilders.standaloneSetup(customersController).build();
 

@@ -41,7 +41,7 @@ class CustomerServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
         customerService = new CustomerServiceImpl(customerRepository, customerCommandToCustomerConverter,
                                                     customerToCustomerCommandConverter);
         customer = Customer.builder()

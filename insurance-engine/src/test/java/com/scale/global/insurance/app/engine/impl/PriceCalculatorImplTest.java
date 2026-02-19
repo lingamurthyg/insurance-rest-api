@@ -28,7 +28,7 @@ class PriceCalculatorImplTest {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
         priceCalculator = new PriceCalculatorImpl(tariffRate, datesCalculator);
         when(tariffRate.getProgramPrice()).thenReturn(new BigDecimal("300.00"));
     }
